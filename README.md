@@ -1,4 +1,4 @@
-https://leetcode.com/
+www.leetcode.com
 =====================
 
 ![](https://github.com/rohan-paul/LeetCode_Solution_JS/blob/master/LeetCode-logo.png)
