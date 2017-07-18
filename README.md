@@ -1,5 +1,5 @@
-www.leetcode.com
-=====================
+Leetcode.com
+============
 
 ![](https://github.com/rohan-paul/LeetCode_Solution_JS/blob/master/LeetCode-logo.png)
 
