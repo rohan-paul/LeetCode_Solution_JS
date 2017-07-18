@@ -15,7 +15,7 @@ Elements of the given array will be in the range [-10,000, 10,000].
 */
 
 
-/*My Soltion thoughts - 
+/*My Solution thoughts - 
 A) If nums is number of elements in an array and k is each window size, then the number of windows possible is = N-W+1 . So in my below example that would be 6 - 4 + 1 i.e. 3
 
 B) Kadane's Algo - Basically I have to look for all contiguous sub-arrays of size 4, and also keep track of the maximum sum contiguous sub-array until the end. Whenever I find a new contiguous sub-array, I check if the current sum is greater than the max_sum so far and updates it accordingly.
