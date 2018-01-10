@@ -13,6 +13,8 @@ I placed before V or X indicates one less, so four is IV (one less than 5) and 9
 X placed before L or C indicates ten less, so forty is XL (10 less than 50) and 90 is XC (ten less than a hundred).
 C placed before D or M indicates a hundred less, so four hundred is CD (a hundred less than five hundred) and nine hundred is CM (a hundred less than a thousand).
 
+So we don't require mappings for numbers 4,9,40 etc because the Roman number theory tells us if the roman numeral is IV = 5-1 = 4, hence when the prefix is smaller than the succeeding number in that case you have to subtract the former number from the succeeding number to get the actual value
+
 
 Algorithm to convert Roman Numerals to Integer Number :
 
