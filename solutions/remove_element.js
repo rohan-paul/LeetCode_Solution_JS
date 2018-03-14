@@ -55,7 +55,7 @@ var removeElement = function (nums, val) {
 	return head;
 }
 
-// console.log(removeElement([3,2,2,3, 4, 5], 3));
+console.log(removeElement([3,2,2,3, 4, 5], 3));
 
 
 //Alternative solution (but not implementing in-place algo)
