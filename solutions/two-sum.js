@@ -27,7 +27,7 @@ var twoSum = function (nums, target) {
 }
 
 // console.log(twoSum([2, 7, 11, 15], 17));
-/* Complexity Analysis - https://leetcode.com/problems/two-sum/solution/
+/* Complexity Analysis of above solution by me - https://leetcode.com/problems/two-sum/solution/
 
  Time complexity : O(n^2). For each element, we try to find its complement by looping through the rest of array which takes O(n)O(n) time. Therefore, the time complexity is O(n^2). Space complexity : O(1). */
 
@@ -63,9 +63,12 @@ Then for every x, we can just look up its complement, T-x, which is O(1).
 Overall the run time of this approach is O(n).*/
 
 /*Best Solution in O(n) time - 
-https://leetcode.com/problems/two-sum/discuss/225/accepted-javascript-on-solution-using-an-object
+
+https://leetcode.com/problems/two-sum/solution/
+
 Here, under the first for loop, I am doing a < numsObject[num] = i > which means, I am assigning the actual array element value to be the key in the key-value pair of the object / associative-array. And the index-no of that element (i) of that array to be the value in the key-value object.
 Then with each iteration, will check with hasOwnPropery() if the key exists. And the key will be the other element, i.e. the difference from the target.
+We reduce the look up time from O(n)O(n) to O(1)O(1) by trading space for speed. A hash table is built exactly for this purpose, it supports fast look up in near constant time. I say "near" because if a collision occurred, a look up could degenerate to O(n)O(n) time. But look up in hash table should be amortized O(1)O(1) time as long as the hash function was chosen carefully.
 */
 function twoSum_On_Best(arr, target) {
 	let numObject = {};
@@ -81,6 +84,13 @@ function twoSum_On_Best(arr, target) {
 	}
 }
 console.log(twoSum_On_Best([2, 7, 11, 15], 9));
+
+/*Complexity Analysis of the aboe best-case O(n) time solution.
+
+Time complexity : O(n)O(n). We traverse the list containing nn elements exactly twice. Since the hash table reduces the look up time to O(1)O(1), the time complexity is O(n)O(n).
+
+Space complexity : O(n)O(n). The extra space required depends on the number of items stored in the hash table, which stores exactly nn elements.
+*/
 
 
 /* Performance Test // First create a random array with 3000 element
