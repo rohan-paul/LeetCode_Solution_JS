@@ -97,12 +97,12 @@ var threeSum2 = function (nums) {
       // Now with the below 2 if functions, I am just implementing how the indexB and indexC will be incremented and decremented with each iteration and gets feeded back to the above while function ( while (indexB < indexC ))
 
       if ((a + b + c) >= 0) {
-        while (nums[indexC - 1] === c) { indexC--; }
+        while (nums[indexC - 1] === c) { indexC--; } // This is equivalent to continue in my previous implementation
         indexC--;
       }
 
       if((a + b + c ) <= 0) {
-        while (nums[indexB + 1] === b) { indexB++ }
+        while (nums[indexB + 1] === b) { indexB++ } // This is equivalent to continue in my previous implementation
         indexB++
       }
     }
@@ -111,4 +111,6 @@ var threeSum2 = function (nums) {
 
 }
 
-console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+// console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+
+// Alernative-3 with objects
