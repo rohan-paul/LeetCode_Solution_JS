@@ -14,14 +14,14 @@ return [0, 1].
 // My Solution
 var twoSum = function (nums, target) {
 	var result = [];
-	
+
 	for (var i = 0; i < nums.length; i++) {
 		for (var j = i + 1; j < nums.length; j++) {
 			if (nums[i] + nums[j] === target) {
 				result.push(i);
 				result.push(j);
 			}
-		}		
+		}
 	}
 	return result;
 }
@@ -52,17 +52,17 @@ Let the sum be T and n be the size of array
 Approach 1:
 The naive way to do this would be to check all combinations (n choose 2). This exhaustive search is O(n2).
 
-Approach 2:  
- A better way would be to sort the array. This takes O(n log n) 
+Approach 2:
+ A better way would be to sort the array. This takes O(n log n)
 Then for each x in array A, use binary search to look for T-x. This will take O(nlogn).
 So, overall search is  O(n log n)
 
-Approach 3 : 
+Approach 3 :
 The best way would be to insert every element into a hash table (without sorting). This takes O(n) as constant time insertion.
 Then for every x, we can just look up its complement, T-x, which is O(1).
 Overall the run time of this approach is O(n).*/
 
-/*Best Solution in O(n) time - 
+/*Best Solution in O(n) time -
 
 https://leetcode.com/problems/two-sum/solution/
 
@@ -85,11 +85,11 @@ function twoSum_On_Best(arr, target) {
 }
 console.log(twoSum_On_Best([2, 7, 11, 15], 9));
 
-/*Complexity Analysis of the aboe best-case O(n) time solution.
+/*Complexity Analysis of the above best-case O(n) time solution.
 
-Time complexity : O(n)O(n). We traverse the list containing nn elements exactly twice. Since the hash table reduces the look up time to O(1)O(1), the time complexity is O(n)O(n).
+Time complexity : O(n)). We traverse the list containing n elements exactly twice. Since the hash table reduces the look up time to O(1), the time complexity is O(n).
 
-Space complexity : O(n)O(n). The extra space required depends on the number of items stored in the hash table, which stores exactly nn elements.
+Space complexity : O(n). The extra space required depends on the number of items stored in the hash table, which stores exactly nn elements.
 */
 
 

@@ -113,4 +113,4 @@ var threeSum2 = function (nums) {
 
 // console.log(threeSum([-1, 0, 1, 2, -1, -4]));
 
-// Alernative-3 with objects
+// Alernative-3 with Hashing / Objects

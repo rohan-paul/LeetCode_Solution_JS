@@ -43,4 +43,34 @@ var shortestToChar = function (S, C) {
 return resultElementDistance;
 }
 
-console.log(shortestToChar("loveleetcode", 'e'));
+// console.log(shortestToChar("loveleetcode", 'e'));
+
+/* Alternative solution
+A> Build an array 'allCIndexPositions' with only the index position value of C
+
+B> Lets say, 'allCIndexPositions' becomes [ 3, 5, 6, 11 ]
+
+C> Now I only have to find the minimum numerical difference of all other element's positional index value from each of these values i.e. 3, 5, 6 , 11
+
+*/
+var shortestToChar = function(S, C) {
+    let all_CIndexPositions = S.split('').reduce((accumulator, element, index) => {
+        if (element === C) {
+            accumulator.push(index);
+        }
+        return accumulator;
+    }, []);
+// console.log(all_CIndexPositions);
+    let resultElementDistance = S.split('').reduce((accumulator, element, index) => {
+        let thisElemIndex = index;
+
+        let minThisElemDist = Math.min.apply(null, all_CIndexPositions.map((elementCIndex, index) => {
+            return Math.abs(thisElemIndex - elementCIndex);
+        }));
+        accumulator.push(minThisElemDist);
+        return accumulator;
+    }, []);
+    return resultElementDistance;
+   }
+
+   console.log(shortestToChar("loveleetcode", 'e'));
