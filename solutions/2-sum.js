@@ -1,3 +1,5 @@
+// Look at my detail  blog post at - https://rohan-paul.github.io/javascript/2018/04/29/2-sum/
+
 /*https://leetcode.com/problems/two-sum/description/
 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -70,7 +72,7 @@ Here, under the first for loop, I am doing a < numsObject[num] = i > which means
 Then with each iteration, will check with hasOwnPropery() if the key exists. And the key will be the other element, i.e. the difference from the target.
 We reduce the look up time from O(n)O(n) to O(1)O(1) by trading space for speed. A hash table is built exactly for this purpose, it supports fast look up in near constant time. I say "near" because if a collision occurred, a look up could degenerate to O(n)O(n) time. But look up in hash table should be amortized O(1)O(1) time as long as the hash function was chosen carefully.
 */
-function twoSum_On_Best(arr, target) {
+function twoSum_O_n_time(arr, target) {
 	let numObject = {};
 	for (var i = 0; i < arr.length; i++) {
 		let thisNum = "" + arr[i];
@@ -83,7 +85,7 @@ function twoSum_On_Best(arr, target) {
 		}
 	}
 }
-console.log(twoSum_On_Best([2, 7, 11, 15], 9));
+// console.log(twoSum_On_Best([2, 7, 11, 15], 9));
 
 /*Complexity Analysis of the above best-case O(n) time solution.
 
@@ -93,24 +95,55 @@ Space complexity : O(n). The extra space required depends on the number of items
 */
 
 
-/* Performance Test // First create a random array with 3000 element
+/* The best solution -
+ While we iterate and inserting elements into the table, we also look back to check if current element's complement already exists in the table. If it exists, we have found a solution and return immediately.
+ So, basically we are doing the checking in one-pass. */
+
+function twoSumBest(array, target) {
+	const numsMap = new Map();
+	for (let i = 0; i < array.length; i++) {
+		if(numsMap.has(target - array[i])) {
+			return [numsMap.get(target - array[i], i)];
+			// get() returns a specified element associated with the specified key from the Map object.
+		} else {
+			numsMap.set(array[i], i);
+			//  set() adds or updates an element with a specified key and value to a Map object.
+		}
+	}
+}
+
+/* Time complexity : O(n). We traverse the list containing nn elements only once. Each look up in the table costs only O(1) time.
+
+Space complexity : O(n). The extra space required depends on the number of items stored in the hash table, which stores at most nn elements.
+
+ In the above, I also used Map rather than use an object literal as a map given V8 has recently added significant performance improvements to Map and Set making them indispensable as lookups.
+ */
+
+
+
+// Performance Test - First create a random array with 3000 elements
 
 var arr = Array.from({length: 3000}, () => Math.floor(Math.random() * 3000));
 
 
-console.time("MySolution");
+console.time("My Brute Force Solution");
 twoSum(arr, (arr[668] + arr[1669]));
-console.timeEnd("MySolution");
+console.timeEnd("My Brute Force Solution");
 
 console.log("*******************************");
 
-console.time("Alt-1");
+console.time("Alternative Solution-1");
 twoSumAlt(arr, (arr[668] + arr[1669]));
-console.timeEnd("Alt-1");
+console.timeEnd("Alternative Solution-1");
 
 console.log("*******************************");
 
-console.time("O(n)-Best");
-twoSumO_nBest(arr, (arr[668] + arr[1669]));
-console.timeEnd("O(n)-Best");
-*/
+console.time("O(n) time Solution with HashMap");
+twoSum_O_n_time(arr, (arr[668] + arr[1669]));
+console.timeEnd("O(n) time Solution with HashMap");
+
+console.log("*******************************");
+
+console.time("twoSumBest Solution");
+twoSumBest(arr, (arr[668] + arr[1669]));
+console.timeEnd("twoSumBest Solution");
