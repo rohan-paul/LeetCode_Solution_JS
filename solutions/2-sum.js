@@ -126,24 +126,24 @@ Space complexity : O(n). The extra space required depends on the number of items
 var arr = Array.from({length: 3000}, () => Math.floor(Math.random() * 3000));
 
 
-console.time("My Brute Force Solution");
+console.time("Solution-1-Brute Force");
 twoSum(arr, (arr[668] + arr[1669]));
-console.timeEnd("My Brute Force Solution");
+console.timeEnd("Solution-1-Brute Force");
 
 console.log("*******************************");
 
-console.time("Alternative Solution-1");
+console.time("Solution-2-Slightly Improved");
 twoSumAlt(arr, (arr[668] + arr[1669]));
-console.timeEnd("Alternative Solution-1");
+console.timeEnd("Solution-2-Slightly Improved");
 
 console.log("*******************************");
 
-console.time("O(n) time Solution with HashMap");
+console.time("Solution-3-O(n) time with HashMap");
 twoSum_O_n_time(arr, (arr[668] + arr[1669]));
-console.timeEnd("O(n) time Solution with HashMap");
+console.timeEnd("Solution-3-O(n) time with HashMap");
 
 console.log("*******************************");
 
-console.time("twoSumBest Solution");
+console.time("Solution-4-Even more efficient solution");
 twoSumBest(arr, (arr[668] + arr[1669]));
-console.timeEnd("twoSumBest Solution");
+console.timeEnd("Solution-4-Even more efficient solution");
