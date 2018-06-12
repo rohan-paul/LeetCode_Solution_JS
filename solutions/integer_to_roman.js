@@ -57,7 +57,9 @@ var intToRoman = function(num) {
 
 }
 
-// console.log(intToRoman(3549));
+console.log(intToRoman(3549)); // Should output - MMMDXLIX
+
+console.log(intToRoman(12)); // Should output - XII
 
 /*Explanation:
 
@@ -106,12 +108,12 @@ var intToRomanAlt = function(num) {
 
 // console.log(intToRomanAlt(3549));
 
-console.time("MySolution");
-intToRoman(3549);
-console.timeEnd("MySolution");
+// console.time("MySolution");
+// intToRoman(3549);
+// console.timeEnd("MySolution");
 
-console.log("*******************************");
+// console.log("*******************************");
 
-console.time("Best-1");
-intToRomanAlt(3549);
-console.timeEnd("Best-1");
+// console.time("Best-1");
+// intToRomanAlt(3549);
+// console.timeEnd("Best-1");

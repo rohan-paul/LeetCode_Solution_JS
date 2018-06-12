@@ -13,9 +13,11 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 
+ // My solution
+
 var merge = function (nums1, m, nums2, n) {
 	// Start the merging process from the end (last index) of the final merged array i.e. index no ( m + n - 1)
-	while ( m > 0 & n > 0) {
+	while ( m > 0 && n > 0) {
 		if (nums1[m - 1] > nums2[n - 1]) {
 			nums1[ m + n - 1] = nums1[m - 1];
 			m--;
@@ -25,12 +27,39 @@ var merge = function (nums1, m, nums2, n) {
 		}
 	}
 
-	// After the previous while loop ends if there are more elements left in nums2
+	// After the previous while loop ends completely, i.e.  if there are more elements left in nums2
 	while (n > 0) {
-		nums1[n - 1] = nums2[n - 1];
+		nums1[m + n - 1] = nums2[n - 1];
 		n--;
 	}
+	return nums1.sort();
 }
 
-// Note, I am not returning the mergerd array nums2 because the question specifically asaked for that.
+/* A)  Note, the original question specifically asked for not returning the final array, but just modifying the array in place. So, the line < return nums1; > was not there in my solution to Leetcode
+
+B) Explanation on why I am not running a separate while loop for m ( like for n) - Because, I merging nums2 to nums1 and finally returning nums1. So, for the case when m is larger than n, all the leftover elements are already there in the nums1. I dont need to take care of them separately.
+
+*/
+
 // console.log(merge([1,5,6], 3, [0,1,8,9], 4));
+// console.log(merge([1,5,6, 4], 4, [0,1,8,], 3));
+
+//***********************************************
+//Alternative Solution-1 - Almost similar to the above, slightly shorter.
+merge1 = (nums1, m, nums2, n) => {
+	while (m > 0 || n > 0) {
+		if ( m > 0 && n > 0) {
+			if (nums1[m - 1] > nums2[n - 1]) {
+				nums1[ m + n - 1] = nums1[--m];
+			} else {
+				nums1[ m + n - 1] = nums2[--n];
+			}
+		}
+		else if ( n > 0) {
+			nums1[m + n - 1] = nums2[--n]
+		}
+	}
+	return nums1.sort();
+}
+// console.log(merge1([1,5,6], 3, [0,1,8,9], 4));
+// console.log(merge1([1,5,6, 4], 4, [0,1,8,], 3));
