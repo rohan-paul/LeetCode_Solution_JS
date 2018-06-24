@@ -15,17 +15,17 @@ var addDigits = function(num) {
     if(num < 10) {
 		return num;
 	} else {
-		var str = num.toString().split('');		
+		var str = num.toString().split('');
 		var repeatSum = str.reduce(function(prev, curr) {
-			return parseInt(prev, 10) + parseInt(curr, 10);			
+			return parseInt(prev, 10) + parseInt(curr, 10);
 		});
 		return addDigits(repeatSum);
 	}
-    
+
 };
 
 // console.log(addDigits(9));
-// 
+//
 // git@github.com:rohan-paul/Javascript-Interview_Problems-Challenges.git
 
 
@@ -54,11 +54,32 @@ means N % 9 = M
 
 so N = M (% 9)
 
-as 9 % 9 = 0,so we can make (n - 1) % 9 + 1 
+as 9 % 9 = 0,so we can make (n - 1) % 9 + 1
 
  */
-var addDigits = function(num) {
-	return 1+((num-1)%9);
+addDigits2 = num => 1 + ((num-1) % 9);
+
+// console.log(addDigits2(38)); // => 2
+
+//Alternative-3 without Recursion
+
+addDigits3 = num => {
+
+	num += '' // This is just converting the number to string, should be equivalent to num.toString()
+
+	while (num.length !==1 ) {
+
+		let sum = 0;
+
+		for (let i = 0; i < num.length; i++) {
+			sum += parseInt(num[i]);
+		}
+
+		// Now once the first sum is calculate for the first set of digits, now reset the original num to be equal to sum. So for the next while loop, that number's digits can be summed up
+
+		num = '' + sum;
+	}
+	return parseInt(num);
 }
 
-console.log(addDigits(38));
+console.log(addDigits3(38));
