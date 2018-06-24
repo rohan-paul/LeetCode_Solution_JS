@@ -5,14 +5,6 @@ Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one s
 Note:
 You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.*/
 
-/**
- * @param {number[]} nums1
- * @param {number} m
- * @param {number[]} nums2
- * @param {number} n
- * @return {void} Do not return anything, modify nums1 in-place instead.
- */
-
  // My solution
 
 var merge = function (nums1, m, nums2, n) {
@@ -61,5 +53,32 @@ merge1 = (nums1, m, nums2, n) => {
 	}
 	return nums1.sort();
 }
-// console.log(merge1([1,5,6], 3, [0,1,8,9], 4));
+console.log(merge1([1,5,6], 3, [0,1,8,9], 4));
 // console.log(merge1([1,5,6, 4], 4, [0,1,8,], 3));
+
+// Alternative-3 - Evern shorter
+
+merge2 = (nums1, m, nums2, n) => {
+
+	let finalLen = m + n;
+	m--;
+	n--;
+
+	/* From the above 2 solutions I can see there are 2 conditions when I will be adding nums1[m] elements to the final merged array. They are A) when nums1[m] > nums2[m] and B) n < 0. But in the above, I implement these 2 conditions in separately. Now, lets implement them together.  */
+
+	while ( finalLen--) {
+		if (n < 0 || nums1[m] > nums2[n]) {
+			nums1[finalLen] = nums1[m--]
+			// In above note, that because, I have already decremented m and n before the while loop, so, here inside the while loop, I am just doing a regular post-decrement (unlike the previous alternative sol).
+		} else {
+			nums1[finalLen] = nums2[n--]
+		}
+	}
+	return nums1;
+}
+
+console.log(merge2([1,5,6], 3, [0,1,8,9], 4));
+
+
+
+
