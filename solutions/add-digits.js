@@ -21,20 +21,25 @@ var addDigits = function(num) {
 		});
 		return addDigits(repeatSum);
 	}
-
 };
 
 // console.log(addDigits(9));
-//
-// git@github.com:rohan-paul/Javascript-Interview_Problems-Challenges.git
 
+// Alternative - 2 - Same as above, but more compact
+
+addDigits4 = num => {
+	let sum = (num + '').split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+	return sum >= 10 ? addDigits4(sum) : sum;
+}
+
+console.log(addDigits4(38));
 
 //Beautiful solution without using recursion
 /*
 A> If the given num is less than 10 then num % 9 would always given that num
 B> But for the specific case when the num is 9, I have to get the result of 9, so to cover this specific case I do - (1+(9-1)%9)
 
-this method depends on theis math Eqn for decimal number:
+this method depends on this math Eqn for decimal number:
 
 N=(a[0] * 1 + a[1] * 10 + …a[n] * 10 ^n),and a[0]…a[n] are all between [0,9]
 
@@ -82,4 +87,4 @@ addDigits3 = num => {
 	return parseInt(num);
 }
 
-console.log(addDigits3(38));
+console.log(addDigits3(38)); // => 2
