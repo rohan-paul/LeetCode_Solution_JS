@@ -6,9 +6,9 @@ Notes: It is intended for this problem to be specified vaguely (ie, no given inp
 
 Update (2015-02-10):
 The signature of the C++ function had been updated. If you still see your function signature accepts a const char * argument, please click the reload button  to reset your code definition.
-
 */
-/*Regexp match >>
+
+/*// Solution-1 - Regexp match >>
 	[+-]?  -- Using the square bracket [], called character set - matches any one of the characters in the bracket. So in this case, it matches the plus or the minus.
 
 	When ? immediately follows any of the other quantifiers (*, +, ?, {n}, {n,}, {n,m}), the matching pattern is non-greedy. That is it matches 0 or 1 time
@@ -19,13 +19,11 @@ The signature of the C++ function had been updated. If you still see your functi
 
 	So, the below regexp, will search for a match any digits starting with a single "+" or a "-" and return a result array of all the matches. In this case, I will only need the 0 index element of that array.
 	*/
-
-// Solution-1
-
 var myAtoi = function (str) {
 
 	var integer = /([+-]?\d*)/.exec(str.trim())[0];
 
+	// A nice use-case of chaining ternary operator
 	return isNaN(+integer) ? 0 : +integer > 2147483647 ? 2147483647 : +integer < -2147483648 ? -2147483648 : +integer;
 
 }
