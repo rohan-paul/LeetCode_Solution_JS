@@ -31,7 +31,16 @@ B> So, in the above test case, when i hits 3 where the element is 4 - currentMax
 
 C> But, we have to make sure, that as soon as the current index no is a negative one, and so ( currentMax + arr[i] < currentMax )  -  that DOES NOT mean the current run of the sub-array is done upto the previous index. BECAUSE THE NEXT POSITIVE NO MAY BE VERY LARGE
 
-C> the globalMax is just a comparison variable, to keep track of the largest value of currentMax till now.
+D) If instead I wrote the currentMax = Math.max(currentMax+arr[i], arr[i]) as below
+
+currentMax = Math.max(currentMax, currentMax + array[i])
+
+Then,  the return value will just be the sum of all positive values in the array, not the max sum of a contiguous subarray.
+
+E> the globalMax is just a comparison variable, to keep track of the largest value of currentMax till now.
+
+
+
 */
 
 // For returnning the sub-array instead of the sum, and accetping only non-negative elements in the final contiguous sub-array, see my solutioin below
