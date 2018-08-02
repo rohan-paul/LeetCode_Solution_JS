@@ -33,6 +33,7 @@ var reverse = function(x) {
 
 // // SOLUTION-2 - Best Performing solution. And also if the Problems asks for not to use any string related methods.
 var reverseBest = function(x) {
+
 	var y = Math.abs(x);
 	var result = 0;
 
@@ -110,3 +111,5 @@ const reverseNum = x => {
 console.log(reverseNum(123)); // => 321
 console.log(reverseNum(-123)); // => -321
 console.log(reverseNum( 1534236469 )) // => 0
+
+/* split() is a string’s prototype method that converts a string to an array. Providing an empty string as an argument means split by each character. So the resulting array would have each character as an element of the array. */
