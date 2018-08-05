@@ -15,13 +15,29 @@ Could you solve it with constant space complexity? (The output array does not co
 
 productExceptSelf = arr => {
 
-    if (arr.length ===0) return;
+    if (arr.length === 0) return;
 
     let result = []
 
     let left = 1
 
-    /* calculate the forward array starting from 0-th index till end of the array. And I am staring with i=1, because, like explained below, I need to set the first multiplier to 1 for both my forward array-multiplication calculation and backward array-multiplication calculation */
+    /* calculate the forward array starting from 0-th index till end of the array. This will build the multiplication result for the left positions for each element of the final result array.
+
+    After this for loop the result array will be [ 1, (1*1), (1*2), (2*3)  ] - So this array's each element represent the all the left element's multiplication for each position of the final result array[].
+
+    So, given my original array [ 1, 2, 3, 4 ]
+        for index-0 all left element's multiplication is 1 ( which is the intialization value of left)
+        For index-1 all left element's multiplication is 1
+        For index-2 all left element's multiplication is 2 * 1 = 2
+    So, for index-0 all left element's multiplication is 2 * 3 = 6
+
+    So for the forward traversal, I am never reaching the right-most element which is arr[3] - CONCEPTUALLY that makes sense, as for the final multiplication result for this position in result[] array, I have exclude this arr[3] element. MEANING FOR arr[3] POSITION, I WILL CONSIDER ALL THE MULTIPLICATION RESULT FROM THE LEFT POSITIONS BUT NO MULTIPLICATION POSITIONS FROM RIGHT. And because under this first for loop for forward array multiplication, I am actually building the left multiplication result.
+
+    Means for the final result[] array, for this index position [3] I will be multiplying all the left element's cumulative multiplication results which is 6 with the initialization value of 'right'
+
+    So, only in this way, I ensure, that this forward array-multiplications ONLY REPRESENTS THE MULTIPLICATION OF ALL THE LEFT ELEMENTS, BUT NOT THE CURRENT POSITION ELEMENT. The equation  - finalResultArrEleme = All-left-Multiplication * All-right-multiplication
+
+    */
     for (let i = 0; i < arr.length; i++) {
 
         result[i] = left;
@@ -32,9 +48,10 @@ productExceptSelf = arr => {
 
     let right = 1;
 
-    for (let j = arr.length - 1; j >=0; j--) {
-        result[j] = result[j] * right;
-        right *= arr[j]
+    for (let i = arr.length - 1; i >=0; i--) {
+        // Unlike the previous for loop, here I have to multiply with the previous forward array elements. As that array's corresponding element will give me the multiplication result of the left elements for this position.
+        result[i] = result[i] * right;
+        right *= arr[i]
     }
     return result;
 }
@@ -42,6 +59,7 @@ productExceptSelf = arr => {
 let input =  [1,2,3,4]  // => The Output should be [24,12,8,6]
 
 console.log(productExceptSelf(input))
+
 /* GOOD EXPLANATION - 1 - https://yucoding.blogspot.com/2016/04/leetcode-question-product-of-array.html?showComment=1533484700200#c5983446391438689683
 
 This question has three requirements:
