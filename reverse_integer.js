@@ -73,7 +73,7 @@ So, after the first execution of the iteration, the value of result will be like
 
 
 ****************************************
-The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems.
+1> The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems).
 
 parseInt(string, radix);
 
@@ -86,6 +86,31 @@ Return value - An integer number parsed from the given string. If the first char
 parseInt(15.99, 10); // => 15
 
 parseInt('15,123', 10); // => 15
+
+*********SO BASICALLY WHEN THE AGRUMENT IS A NUMBER parseInt() is equivalent to Math.floor()*********
+
+2> parseInt() vs Math.round()
+https://stackoverflow.com/questions/8170865/math-round-vs-parseint
+
+A> parseInt() extracts a number from a string, e.g.
+
+parseInt('1.5') // => 1
+
+Math.round() rounds the number to the nearest whole number:
+
+Math.round('1.5') // => 2
+
+Math.round('1.4')   // => 1
+
+
+
+B> parseInt() can get its number by removing extra text, e.g.:
+
+parseInt('12foo') // => 12
+
+However, Math.round will not:
+
+Math.round('12foo') // => NaN
 
 */
 
