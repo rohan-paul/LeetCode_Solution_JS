@@ -93,3 +93,14 @@ removeElements_4 = (nums, val) => {
 }
 
 console.log(removeElements_4([3,2,2,3, 4, 5], 3));
+
+
+// SOLUTION-5
+removeElements_5 = (nums, val) => {
+    while (nums.indexOf(val) !== -1) {
+        nums.splice(nums.indexOf(val), 1)
+    }
+    return nums.length
+}
+
+console.log(removeElements_5([3,2,2,3, 4, 5], 3));
