@@ -1,5 +1,7 @@
 /* https://leetcode.com/problems/product-of-array-except-self/description/#_=_
 
+This question came in a Google Interview - Senior Software Engineer Interview Mountain View-CA https://www.glassdoor.com/Interview/Given-an-array-of-numbers-replace-each-number-with-the-product-of-all-the-numbers-in-the-array-except-the-number-itself-w-QTN_9132.htm
+
 Given an array nums of n integers where n > 1,  return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
 
 Example:
@@ -39,7 +41,6 @@ productExceptSelf = arr => {
 
     */
     for (let i = 0; i < arr.length; i++) {
-
         result[i] = left;
         left *= arr[i]
     }

@@ -1,4 +1,4 @@
-/* Same probelem of Finding Product of Array Except Self Javascript - But without Space and Time complexity */
+/* Same problem of Finding Product of Array Except Self Javascript - But without Space and Time complexity */
 
 productOfArrElementsExceptSelf = arr => {
 
