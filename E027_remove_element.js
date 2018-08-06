@@ -68,7 +68,7 @@ var removeElement_alt = function(nums, val) {
 
 console.log(removeElement_alt([3,2,2,3, 4, 5], 3));
 
-// SOLULTION - 3 - Same as above, just starting the loop from the end of the array
+// SOLUTION - 3 - Same as above, just starting the loop from the end of the array
 removeElement_3 = (nums, val) => {
     for (let i = nums.length - 1; i >= 0; i--) {
         if (nums[i] === val ) {
@@ -79,3 +79,17 @@ removeElement_3 = (nums, val) => {
 }
 
 console.log(removeElement_3([3,2,2,3, 4, 5], 3));
+
+
+// SOLUTION-4
+removeElements_4 = (nums, val) => {
+    let index = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+            index++
+        }
+    }
+    return index;
+}
+
+console.log(removeElements_4([3,2,2,3, 4, 5], 3));
