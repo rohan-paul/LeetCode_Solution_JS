@@ -22,7 +22,7 @@ Explanation: 14 is not ugly since it includes another prime factor 7.
 
 https://www.geeksforgeeks.org/ugly-numbers/
 
-Note that 1 is typically treated as an ugly number. The sequence 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, … shows the first 11 ugly numbers. By convention, 1 is considered to be ugly number.
+Note that 1 is typically treated as an ugly number. The sequence 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, … shows the first 11 ugly numbers. By convention, 1 is considered to be ugly number. By convention, 1 is included.
 
 Solution Algo - To check if a number is ugly, divide the number by greatest divisible powers of 2, 3 and 5, if the number becomes 1 then it is an ugly number otherwise not.
 
@@ -78,7 +78,5 @@ isUgly_2 = (num) => {
     if (num % 5 === 0) return isUgly_2(num / 5);
     else return false;
 }
-
-
 
 console.log(isUgly(9000)); // should output true
