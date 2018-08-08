@@ -45,7 +45,8 @@ isUgly = (num) => {
 		while ( num % i === 0 ) {
 			num /= i;
 		}
-	}
+    }
+    // After the while loops runs completely if the final number is 1 then its a superUgly. Else not, because if it was divided by any other number apart from the given set of primes, then the final number would be a decimal and will NOT be equal to 1
 	return num === 1;
 }
 console.log(isUgly(9000)); // should output true
