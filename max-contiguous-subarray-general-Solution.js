@@ -1,27 +1,25 @@
-/* SOLUTION-2 - General Maximum subarray problem - NOTE - This solution does not considere any conditon of that the final sub-arraay can NOT include any negaive numbers. In othere words, the its the final contiguous can have negative numbers in it.
+/* SOLUTION-2 - General Maximum subarray problem - NOTE - This solution does not consider any condition of that the final sub-array can NOT include any negaive numbers. In othere words, the its the final contiguous can have negative numbers in it.
 
 Find the contiguous subarray within a one-dimensional array of numbers which has the largest sum. For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; the contiguous subarray with the largest sum is 4, −1, 2, 1, with sum 6. */
 
 maxContiguousSubArray = arr => {
-
-let globalMax = 0,
+  let globalMax = 0,
     currentMax = 0;
 
-    for(let i = 0; i < arr.length ; i++) {
-        currentMax = Math.max(currentMax+arr[i], arr[i]);
-        // console.log(currentMax); // this line is only for my own debugging
-        globalMax =  Math.max(globalMax, currentMax);
-    }    
-    return globalMax;
-}
+  for (let i = 0; i < arr.length; i++) {
+    currentMax = Math.max(currentMax + arr[i], arr[i]);
+    // console.log(currentMax); // this line is only for my own debugging
+    globalMax = Math.max(globalMax, currentMax);
+  }
+  return globalMax;
+};
 
 let myArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]; // => 6
 
 console.log(maxContiguousSubArray(myArr));
 
-
-/*Explanation 
-A> currentMax = Math.max(currentMax+arr[i], arr[i])   => This line effectively implements the requirement that the sub-array should be contguous. 
+/*Explanation
+A> currentMax = Math.max(currentMax+arr[i], arr[i])   => This line effectively implements the requirement that the sub-array should be contguous.
 
 It adds the current index elements with the positive summation of previous contiguous elemtents. So, it will sometime become negative if the current index no is a large negative no.
 
