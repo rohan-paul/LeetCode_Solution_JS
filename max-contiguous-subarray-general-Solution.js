@@ -19,11 +19,11 @@ let myArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]; // => 6
 console.log(maxContiguousSubArray(myArr));
 
 /*Explanation
-A> currentMax = Math.max(currentMax+arr[i], arr[i])   => This line effectively implements the requirement that the sub-array should be contguous.
+A> currentMax = Math.max(currentMax+arr[i], arr[i])   => This line effectively implements the requirement that the sub-array should be contiguous.
 
 It adds the current index elements with the positive summation of previous contiguous elemtents. So, it will sometime become negative if the current index no is a large negative no.
 
-And at any index, if this current index no is so large a positive no, that arr[i] > (currentMax + arr[i]) then effective, the caluculation of Sum is effectively reset from this position - which is what I want.
+And at any index, if this current index no is so large a positive no, that arr[i] > (currentMax + arr[i]) then effective, the calculation of Sum is effectively reset from this position - which is what I want.
 
 B> So, in the above test case, when i hits 3 where the element is 4 - currentMax becomes 4, i.e. sum calculation is freshly started from here for the next set of nos.
 
