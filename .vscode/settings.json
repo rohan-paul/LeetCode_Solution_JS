@@ -1,4 +1,7 @@
 {
-    "eslint.enable": false,
-    "python.linting.enabled": false
+  "editor.tabSize": 2,
+  "workbench.colorTheme": "Sunburst",
+  "files.associations": {
+    "*.js": "javascript"
+  }
 }
