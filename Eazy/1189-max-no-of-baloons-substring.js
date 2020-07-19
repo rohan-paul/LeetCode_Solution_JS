@@ -21,13 +21,27 @@ const WORD = "balloon"
 
 const maxNumberOfBalloons = text => {
   // First a function to return Hash to keep count of letter occurrence
-  const charCounter = str => {
+
+  /*   const charCounter = str => {
     let charCount = {}
     for (let i = 0; i < str.length; i++) {
       if (!charCount[str[i]]) {
         charCount[str[i]] = 0
       }
       charCount[str[i]]++
+    }
+    return charCount
+  } */
+
+  // Another way to write the same above function to build the hash counter
+  const charCounter = str => {
+    let charCount = {}
+    for (let i = 0; i < str.length; i++) {
+      if (!charCount[str[i]]) {
+        charCount[str[i]] = 1
+      } else {
+        charCount[str[i]] = 1 + charCount[str[i]]
+      }
     }
     return charCount
   }
